@@ -1,14 +1,7 @@
 require 'dotenv' # Appelle la gem Dotenv
 require 'json'
 require 'http'
-
 Dotenv.load
-
-# Il est ensuite très facile d'appeler les données du hash ENV, par exemple là je vais afficher le contenu de la clé TWITTER_API_SECRET
-puts ENV['TWITTER_API_SECRET']
-
-#Autre exemple 
-puts ENV['BEST_WEBSITE_EVER']
 
 # création de la clé d'api et indication de l'url utilisée.
 api_key = ENV["OPENAI_API_KEY"]
@@ -25,7 +18,7 @@ data = {
   "prompt" => "5 parfums de glace",
   "max_tokens" => 50,
   "n" => 6,
-  "temperature" => 0.5
+  "temperature" => 0.9
 }
 
 

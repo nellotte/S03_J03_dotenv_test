@@ -4,12 +4,6 @@ require 'http'
 
 Dotenv.load
 
-# Il est ensuite très facile d'appeler les données du hash ENV, par exemple là je vais afficher le contenu de la clé TWITTER_API_SECRET
-puts ENV['TWITTER_API_SECRET']
-
-#Autre exemple 
-puts ENV['BEST_WEBSITE_EVER']
-
 # création de la clé d'api et indication de l'url utilisée.
 api_key = ENV["OPENAI_API_KEY"]
 url = "https://api.openai.com/v1/engines/text-babbage-001/completions"
@@ -22,8 +16,8 @@ headers = {
 
 # un peu de json pour envoyer des informations directement à l'API
 data = {
-  "prompt" => "5 parfums de glace",
-  "max_tokens" => 50,
+  "prompt" => "une recette de déssert asiatique aléatoire écrite en francais",
+  "max_tokens" => 120,
   "n" => 6,
   "temperature" => 0.5
 }
@@ -37,7 +31,7 @@ response_body = JSON.parse(response.body.to_s)
 response_string = response_body['choices'][0]['text'].strip
 
 # ligne qui permet d'envoyer l'information sur ton terminal
-puts "Voici 5 parfums de glace :"
+puts "Voici une recette de dessert aléatoire :"
 puts response_string
 
 
